@@ -1,0 +1,71 @@
+<!doctype html>
+
+<base href="" />
+
+<link rel=stylesheet href="https://unpkg.com/bootstrap@4.3.1/dist/css/bootstrap.css" />
+<link rel=stylesheet href="https://unpkg.com/bootstrap-select@1.13.8/dist/css/bootstrap-select.css" />
+
+<style> body { margin: 1rem; } </style>
+
+<h1> Bootstrap image-select </h1>
+
+
+<select title="Select your surfboard" class="my-image-selectpicker">
+    <option>Select...</option>
+    <option data-thumbnail="https://upload.wikimedia.org/wikipedia/commons/8/87/Google_Chrome_icon_%282011%29.png">Chrome</option>
+    <option data-thumbnail="https://upload.wikimedia.org/wikipedia/commons/d/d2/Firefox_Logo%2C_2017.png">Firefox</option>
+    <option data-thumbnail="https://upload.wikimedia.org/wikipedia/en/thumb/9/98/Microsoft_Edge_logo_%282019%29.svg/1200px-Microsoft_Edge_logo_%282019%29.svg.png">Edge</option>
+    <option data-thumbnail="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Opera_2015_icon.svg/1200px-Opera_2015_icon.svg.png">Opera</option>
+    <option data-thumbnail="https://upload.wikimedia.org/wikipedia/en/7/71/Safari_14_icon.png">Safari</option>
+</select>
+
+
+<script src="https://unpkg.com/jquery@3.3.1/dist/jquery.slim.min.js"></script>
+<script data-src="https://unpkg.com/popper.js@1.14.7/dist/popper.min.js"></script>
+<script src="https://unpkg.com/bootstrap@4.3.1/dist/js/bootstrap.bundle.min.js"
+  data-src="https://unpkg.com/bootstrap@4.3.1/dist/js/bootstrap.min.js" ></script>
+<script src="https://unpkg.com/bootstrap-select@1.13.8/dist/js/bootstrap-select.min.js"></script>
+
+<script>
+const BASE_URL = $('base[ href ]').attr('href');
+
+const $_SELECT_PICKER = $('.my-image-selectpicker');
+
+$_SELECT_PICKER.find('option').each((idx, elem) => {
+    const $OPTION = $(elem);
+    const IMAGE_URL = $OPTION.attr('data-thumbnail');
+
+    if (IMAGE_URL) {
+        $OPTION.attr('data-content', "<img width='64px' src='%i'/> %s".replace(/%i/, BASE_URL + IMAGE_URL).replace(/%s/, $OPTION.text()))
+    }
+
+    console.warn('option:', idx, $OPTION)
+});
+
+$_SELECT_PICKER.selectpicker();
+
+
+// $('.selectpicker').selectpicker();
+
+/* $(document).ready(function() {
+  // Initiate with custom caret icon
+  $('select.selectpicker').selectpicker({
+    caretIcon: 'glyphicon glyphicon-menu-down'
+  });
+}); */
+</script>
+
+
+
+<p> . <p> . <p> .
+
+<pre>
+
+NDF / 27-March-2019.
+
+ * https://github.com/snapappointments/bootstrap-select
+ * https://github.com/thdoan/bootstrap-select
+ * https://thdoan.github.io/bootstrap-select/examples.html
+ * https://developer.snapappointments.com/bootstrap-select/
+
+</pre>
